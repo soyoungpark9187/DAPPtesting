@@ -229,7 +229,7 @@ function setValue() {
 }
 
 function setReview() {
-	simpleStorage.setReview(contractAddress, reportText. reportScore, function(e,r){
+	simpleStorage.setReview(contractAddress, reportText, reportScore, function(e,r){
 	    document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<span id="pending" style="color:red;">(Pending)</span>';
 	    txid = r;
 	});
