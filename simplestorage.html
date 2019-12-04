@@ -30,102 +30,102 @@
 <script>
 var contractAddress = '0x1099140103CDbDC97c54D1A48Bb943B8CB29EC9b';
 var abi = [
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "Reviews",
-		"outputs": [
-			{
-				"name": "writer",
-				"type": "address"
-			},
-			{
-				"name": "text",
-				"type": "string"
-			},
-			{
-				"name": "score",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"type": "function",
-		"stateMutability": "view"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "x",
-				"type": "uint256"
-			}
-		],
-		"name": "set",
-		"outputs": [],
-		"payable": false,
-		"type": "function",
-		"stateMutability": "nonpayable"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_ether",
-				"type": "address"
-			}
-		],
-		"name": "getReview",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"type": "function",
-		"stateMutability": "view"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "get",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"type": "function",
-		"stateMutability": "view"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_ether",
-				"type": "address"
-			},
-			{
-				"name": "_text",
-				"type": "string"
-			},
-			{
-				"name": "_score",
-				"type": "uint256"
-			}
-		],
-		"name": "setReview",
-		"outputs": [],
-		"payable": false,
-		"type": "function",
-		"stateMutability": "nonpayable"
-	}
+   {
+      "constant": true,
+      "inputs": [
+         {
+            "name": "",
+            "type": "uint256"
+         }
+      ],
+      "name": "Reviews",
+      "outputs": [
+         {
+            "name": "writer",
+            "type": "address"
+         },
+         {
+            "name": "text",
+            "type": "string"
+         },
+         {
+            "name": "score",
+            "type": "uint256"
+         }
+      ],
+      "payable": false,
+      "type": "function",
+      "stateMutability": "view"
+   },
+   {
+      "constant": false,
+      "inputs": [
+         {
+            "name": "x",
+            "type": "uint256"
+         }
+      ],
+      "name": "set",
+      "outputs": [],
+      "payable": false,
+      "type": "function",
+      "stateMutability": "nonpayable"
+   },
+   {
+      "constant": true,
+      "inputs": [
+         {
+            "name": "_ether",
+            "type": "address"
+         }
+      ],
+      "name": "getReview",
+      "outputs": [
+         {
+            "name": "",
+            "type": "uint256"
+         }
+      ],
+      "payable": false,
+      "type": "function",
+      "stateMutability": "view"
+   },
+   {
+      "constant": true,
+      "inputs": [],
+      "name": "get",
+      "outputs": [
+         {
+            "name": "",
+            "type": "uint256"
+         }
+      ],
+      "payable": false,
+      "type": "function",
+      "stateMutability": "view"
+   },
+   {
+      "constant": false,
+      "inputs": [
+         {
+            "name": "_ether",
+            "type": "address"
+         },
+         {
+            "name": "_text",
+            "type": "string"
+         },
+         {
+            "name": "_score",
+            "type": "uint256"
+         }
+      ],
+      "name": "setReview",
+      "outputs": [],
+      "payable": false,
+      "type": "function",
+      "stateMutability": "nonpayable"
+   }
 ];
 var simpleStorageContract;
 var simpleStorage;
@@ -179,8 +179,8 @@ function startApp() {
         //alert(getLink(r[0]));
         document.getElementById('accountAddr').innerHTML = getLink(r[0]);
     });
-//    getValue();
-    getReview();
+    getValue();
+//    getReview();
 }
 
 function getLink(addr) {
@@ -197,13 +197,13 @@ function getValue() {
 }
 
 function getReview() {
-	// get score
-	simpleStorage.getReview(contractAddress, function(e,r){
-	document.getElementById('storedData').innerHTML=r.toNumber();
-	});
-	  web3.eth.getBlockNumber(function(e,r){
-		    document.getElementById('lastBlock').innerHTML = r;
-	});
+   // get score
+   simpleStorage.getReview(contractAddress, function(e,r){
+   document.getElementById('storedData').innerHTML=r.toNumber();
+   });
+     web3.eth.getBlockNumber(function(e,r){
+          document.getElementById('lastBlock').innerHTML = r;
+   });
 }
 
 function setValue() {
@@ -229,24 +229,24 @@ function setValue() {
 }
 
 function setReview() {
-	var txid
-	simpleStorage.setReview(contractAddress, reportText, reportScore, function(e,r){
-	    document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<span id="pending" style="color:red;">(Pending)</span>';
-	    txid = r;
-	});
-	  var filter = web3.eth.filter('latest');
-	  filter.watch(function(e, r) {
-	    getReview();
-	    web3.eth.getTransaction(txid, function(e,r){
-	      if (r != null && r.blockNumber > 0) {
-	        document.getElementById('pending').innerHTML = '(기록된 블록: ' + r.blockNumber + ')';
-	        document.getElementById('pending').style.cssText ='color:green;';
-	        document.getElementById('text').style.cssText ='color:green; font-size:300%;';
-	        filter.stopWatching();
-	      }
-	   });
-	 });
-	}
+   var txid
+   simpleStorage.setReview(contractAddress, reportText, reportScore, function(e,r){
+       document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<span id="pending" style="color:red;">(Pending)</span>';
+       txid = r;
+   });
+     var filter = web3.eth.filter('latest');
+     filter.watch(function(e, r) {
+       getReview();
+       web3.eth.sendTransaction(contractAddress, reportText, reportScore , function(e,r){
+         if (r != null && r.blockNumber > 0) {
+           document.getElementById('pending').innerHTML = '(기록된 블록: ' + r.blockNumber + ')';
+           document.getElementById('pending').style.cssText ='color:green;';
+           document.getElementById('score').style.cssText ='color:green; font-size:300%;';
+           filter.stopWatching();
+        }
+     });
+   });
+}
 
 </script>
 </html>
