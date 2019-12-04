@@ -59,132 +59,160 @@
     <script>
         var contractAddress = '0x4d86b7c7af912f345b837ee7db40f2970e0eaa3e';
         var abi =
-        [
-        	{
-        		"constant": true,
-        		"inputs": [
-        			{
-        				"name": "",
-        				"type": "uint256"
-        			}
-        		],
-        		"name": "Reviews",
-        		"outputs": [
-        			{
-        				"name": "writer",
-        				"type": "address"
-        			},
-        			{
-        				"name": "text",
-        				"type": "string"
-        			},
-        			{
-        				"name": "score",
-        				"type": "uint256"
-        			}
-        		],
-        		"payable": false,
-        		"type": "function",
-        		"stateMutability": "view"
-        	},
-        	{
-        		"constant": false,
-        		"inputs": [
-        			{
-        				"name": "x",
-        				"type": "uint256"
-        			}
-        		],
-        		"name": "setScore",
-        		"outputs": [],
-        		"payable": false,
-        		"type": "function",
-        		"stateMutability": "nonpayable"
-        	},
-        	{
-        		"constant": false,
-        		"inputs": [
-        			{
-        				"name": "x",
-        				"type": "string"
-        			}
-        		],
-        		"name": "setText",
-        		"outputs": [],
-        		"payable": false,
-        		"type": "function",
-        		"stateMutability": "nonpayable"
-        	},
-        	{
-        		"constant": true,
-        		"inputs": [
-        			{
-        				"name": "_ether",
-        				"type": "address"
-        			}
-        		],
-        		"name": "getReview",
-        		"outputs": [
-        			{
-        				"name": "",
-        				"type": "uint256"
-        			}
-        		],
-        		"payable": false,
-        		"type": "function",
-        		"stateMutability": "view"
-        	},
-        	{
-        		"constant": true,
-        		"inputs": [],
-        		"name": "getScore",
-        		"outputs": [
-        			{
-        				"name": "",
-        				"type": "uint256"
-        			}
-        		],
-        		"payable": false,
-        		"type": "function",
-        		"stateMutability": "view"
-        	},
-        	{
-        		"constant": false,
-        		"inputs": [
-        			{
-        				"name": "_ether",
-        				"type": "address"
-        			},
-        			{
-        				"name": "_text",
-        				"type": "string"
-        			},
-        			{
-        				"name": "_score",
-        				"type": "uint256"
-        			}
-        		],
-        		"name": "setReview",
-        		"outputs": [],
-        		"payable": false,
-        		"type": "function",
-        		"stateMutability": "nonpayable"
-        	},
-        	{
-        		"constant": true,
-        		"inputs": [],
-        		"name": "getText",
-        		"outputs": [
-        			{
-        				"name": "",
-        				"type": "string"
-        			}
-        		],
-        		"payable": false,
-        		"type": "function",
-        		"stateMutability": "view"
-        	}
-        ];
+        	[
+        		{
+        			"constant": true,
+        			"inputs": [
+        				{
+        					"name": "",
+        					"type": "uint256"
+        				}
+        			],
+        			"name": "Reviews",
+        			"outputs": [
+        				{
+        					"name": "writer",
+        					"type": "address"
+        				},
+        				{
+        					"name": "text",
+        					"type": "string"
+        				},
+        				{
+        					"name": "score",
+        					"type": "uint256"
+        				}
+        			],
+        			"payable": false,
+        			"type": "function",
+        			"stateMutability": "view"
+        		},
+        		{
+        			"constant": false,
+        			"inputs": [
+        				{
+        					"name": "x",
+        					"type": "uint256"
+        				}
+        			],
+        			"name": "setScore",
+        			"outputs": [],
+        			"payable": false,
+        			"type": "function",
+        			"stateMutability": "nonpayable"
+        		},
+        		{
+        			"constant": false,
+        			"inputs": [
+        				{
+        					"name": "x",
+        					"type": "string"
+        				}
+        			],
+        			"name": "setText",
+        			"outputs": [],
+        			"payable": false,
+        			"type": "function",
+        			"stateMutability": "nonpayable"
+        		},
+        		{
+        			"constant": false,
+        			"inputs": [
+        				{
+        					"name": "x",
+        					"type": "uint256"
+        				}
+        			],
+        			"name": "set",
+        			"outputs": [],
+        			"payable": false,
+        			"type": "function",
+        			"stateMutability": "nonpayable"
+        		},
+        		{
+        			"constant": true,
+        			"inputs": [
+        				{
+        					"name": "_ether",
+        					"type": "address"
+        				}
+        			],
+        			"name": "getReview",
+        			"outputs": [
+        				{
+        					"name": "",
+        					"type": "uint256"
+        				}
+        			],
+        			"payable": false,
+        			"type": "function",
+        			"stateMutability": "view"
+        		},
+        		{
+        			"constant": true,
+        			"inputs": [],
+        			"name": "get",
+        			"outputs": [
+        				{
+        					"name": "",
+        					"type": "uint256"
+        				}
+        			],
+        			"payable": false,
+        			"type": "function",
+        			"stateMutability": "view"
+        		},
+        		{
+        			"constant": true,
+        			"inputs": [],
+        			"name": "getScore",
+        			"outputs": [
+        				{
+        					"name": "",
+        					"type": "uint256"
+        				}
+        			],
+        			"payable": false,
+        			"type": "function",
+        			"stateMutability": "view"
+        		},
+        		{
+        			"constant": false,
+        			"inputs": [
+        				{
+        					"name": "_ether",
+        					"type": "address"
+        				},
+        				{
+        					"name": "_text",
+        					"type": "string"
+        				},
+        				{
+        					"name": "_score",
+        					"type": "uint256"
+        				}
+        			],
+        			"name": "setReview",
+        			"outputs": [],
+        			"payable": false,
+        			"type": "function",
+        			"stateMutability": "nonpayable"
+        		},
+        		{
+        			"constant": true,
+        			"inputs": [],
+        			"name": "getText",
+        			"outputs": [
+        				{
+        					"name": "",
+        					"type": "string"
+        				}
+        			],
+        			"payable": false,
+        			"type": "function",
+        			"stateMutability": "view"
+        		}
+        	];
 
         var simpleStorageContract;
         var simpleStorage;
@@ -240,7 +268,7 @@
             return '<a target="_blank" href=https://ropsten.etherscan.io/address/' + addr + '>' + addr + '</a>';
         }
         function getScore() {
-            simpleStorage.getScore(function (e, r) {
+            simpleStorage.get(function (e, r) {
                 document.getElementById('storedData').innerHTML = r.toNumber();
             });
             web3.eth.getBlockNumber(function (e, r) {
@@ -259,7 +287,7 @@
             var newScore = document.getElementById('Score').value;
 //            var newScore = reportScore;
             var txid
-            simpleStorage.setScore(newScore, function (e, r) {
+            simpleStorage.set(newScore, function (e, r) {
                 document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<span id="pending" style="color:red;">(Pending)</span>';
                 txid = r;
             });
