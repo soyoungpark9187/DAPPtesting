@@ -72,7 +72,7 @@
         			"outputs": [
         				{
         					"name": "writer",
-        					"type": "address"
+        					"type": "string"
         				},
         				{
         					"name": "text",
@@ -131,25 +131,6 @@
         		},
         		{
         			"constant": true,
-        			"inputs": [
-        				{
-        					"name": "_ether",
-        					"type": "address"
-        				}
-        			],
-        			"name": "getReview",
-        			"outputs": [
-        				{
-        					"name": "",
-        					"type": "uint256"
-        				}
-        			],
-        			"payable": false,
-        			"type": "function",
-        			"stateMutability": "view"
-        		},
-        		{
-        			"constant": true,
         			"inputs": [],
         			"name": "get",
         			"outputs": [
@@ -161,6 +142,28 @@
         			"payable": false,
         			"type": "function",
         			"stateMutability": "view"
+        		},
+        		{
+        			"constant": false,
+        			"inputs": [
+        				{
+        					"name": "_user",
+        					"type": "string"
+        				},
+        				{
+        					"name": "_text",
+        					"type": "string"
+        				},
+        				{
+        					"name": "_score",
+        					"type": "uint256"
+        				}
+        			],
+        			"name": "setReview",
+        			"outputs": [],
+        			"payable": false,
+        			"type": "function",
+        			"stateMutability": "nonpayable"
         		},
         		{
         			"constant": true,
@@ -177,26 +180,23 @@
         			"stateMutability": "view"
         		},
         		{
-        			"constant": false,
+        			"constant": true,
         			"inputs": [
         				{
-        					"name": "_ether",
-        					"type": "address"
-        				},
-        				{
-        					"name": "_text",
+        					"name": "user",
         					"type": "string"
-        				},
+        				}
+        			],
+        			"name": "getReview",
+        			"outputs": [
         				{
-        					"name": "_score",
+        					"name": "",
         					"type": "uint256"
         				}
         			],
-        			"name": "setReview",
-        			"outputs": [],
         			"payable": false,
         			"type": "function",
-        			"stateMutability": "nonpayable"
+        			"stateMutability": "view"
         		},
         		{
         			"constant": true,
@@ -268,7 +268,7 @@
             return '<a target="_blank" href=https://ropsten.etherscan.io/address/' + addr + '>' + addr + '</a>';
         }
         function getScore() {
-            simpleStorage.get(function (e, r) {
+            simpleStorage.getReview('xx', function (e, r) {
                 document.getElementById('storedData').innerHTML = r.toNumber();
             });
             web3.eth.getBlockNumber(function (e, r) {
@@ -287,7 +287,7 @@
             var newScore = document.getElementById('Score').value;
 //            var newScore = reportScore;
             var txid
-            simpleStorage.set(newScore, function (e, r) {
+            simpleStorage.setReview('xx', 'good', newScore, function (e, r) {
                 document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<span id="pending" style="color:red;">(Pending)</span>';
                 txid = r;
             });
