@@ -271,7 +271,7 @@
         }
         function getText() {
             simpleStorage.getText(function (e, r) {
-                document.getElementById('storedText').innerHTML = r.toNumber();
+                document.getElementById('storedText').innerHTML = r[0];
             });
             web3.eth.getBlockNumber(function (e, r) {
                 document.getElementById('lastBlock').innerHTML = r;
@@ -279,7 +279,6 @@
         }
         function setScore() {
             var newScore = document.getElementById('newScore').value;
-//            var newScore = reportScore;
             var txid
             simpleStorage.setScore(newScore, function (e, r) {
                 document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<span id="pending" style="color:red;">(Pending)</span>';
@@ -300,7 +299,6 @@
         }
         function setText() {
             var newText = document.getElementById('newText').value;
-//            var newScore = reportScore;
             var txid
             simpleStorage.setText(newText, function (e, r) {
                 document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<span id="pending" style="color:red;">(Pending)</span>';
